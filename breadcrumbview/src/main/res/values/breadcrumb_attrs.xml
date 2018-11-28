@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <declare-styleable name="BreadcrumbView">
-        <attr name="path" format="string"/>
-        <attr name="separator" format="string" />
-        <attr name="maxLevels" format="integer"/>
-        <attr name="labelColor" format="reference|color"/>
-        <attr name="labelTextColor" format="reference|color"/>
-        <attr name="labelTextSize" format="dimension"/>
-        <attr name="endType" >
-            <flag name="Open" value="1"/>
-            <flag name="Closed" value="0"/>
-        </attr>
-        <attr name="startType">
-            <flag name="Open" value="1"/>
-            <flag name="Closed" value="0"/>
-        </attr>
+        <attr name="fillColor" format="reference|color" />
+        <attr name="enableFillColor" format="reference|color" />
+        <attr name="strokeColor" format="reference|color" />
     </declare-styleable>
-
-
-
 </resources>

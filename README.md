@@ -2,12 +2,12 @@
 
 This is and Android view intended to show a breadcrumb of a given path
 
-![Screenshot](https://raw.githubusercontent.com/worldline-spain/breadcrumbview/master/art/screenshot.png "Example")
+![Screenshot](https://raw.githubusercontent.com/LivioGama/breadcrumbview/master/art/screenshot2.png "Example")
 
 
 ## Installing
 
-Just add the following to your build.gradle file
+Just add the following to your build.gradle file (but not for LivioGama's fork)
 
 ```groovy
   compile 'com.worldline:breadcrumbview:1.0.0'
@@ -24,33 +24,100 @@ Insert the view on your layout. Here an example:
 
 ```xml
     <com.worldline.breadcrumbview.BreadcrumbView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:maxLevels="4"
-        app:separator="\\."
-        app:path="Apples.Strawberries.Bananas"
-        app:labelColor="@color/colorAccent"
-        app:labelTextSize="16sp"
-        app:labelTextColor="#000"
-        app:endType="Closed"
-        app:startType="Open"
-        />
+                android:id="@+id/breadcrumbView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:enableFillColor="#FFFFFF"
+                app:fillColor="#EFF2F7"
+                app:strokeColor="#DEE1E6">
+    
+            <LinearLayout
+                    android:id="@+id/breadcrumb0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:orientation="horizontal">
+    
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+    
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Book 1" />
+            </LinearLayout>
+    
+            <LinearLayout
+                    android:id="@+id/breadcrumb1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:orientation="horizontal">
+    
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+    
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Chapter 2" />
+            </LinearLayout>
+    
+            <LinearLayout
+                    android:id="@+id/breadcrumb2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:orientation="horizontal">
+    
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+    
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Section 3" />
+            </LinearLayout>
+    
+            <LinearLayout
+                    android:id="@+id/breadcrumb3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:orientation="horizontal">
+    
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/ic_launcher" />
+    
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:text="Paragraph 4" />
+            </LinearLayout>
+        </com.worldline.breadcrumbview.BreadcrumbView>
 ```
 
 ### Properties
 
-* **maxLevels**: the number of levels that the view should fit. If the path has less levels, the extra ones won't be shown. If it has more, they will be ignored
-* **path**: the path string that will be splitted into crumbs
-* **separator**: the regex expression used to split the path
-* **labelTextSize**: size of the text to be shown in the crumbs
-* **labelTextColor**: color of the text to be shown in the crumbs
-* **labelColor**: the color of the crumbs themselves
-* **startType**: values *Closed* (square) or *Open* (arrow) will determine how the first crumb left part will be drawn
-* **endType**: values *Closed* (square) or *Open* (arrow) will determine how the last crumb right part will be drawn
+* **enableFillColor**: The arrow color when focused
+* **fillColor**: The arrow color when not focused
+* **strokeColor**: The arrow outline border color
 
 ### Events
 
-You can subscribe to the event ```onPathLabelClick``` to the method ```setOnPathLabelClickListener```. This method receives a single argument with the index of the tapped crumb (starting in 0).
+You can customize your child view as you want, and manually add click listeners.
 
 ## LICENSE ##
 
